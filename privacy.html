@@ -121,11 +121,15 @@
     </ul>
 
     <h3>B. Approximate Location Data (IP Address)</h3>
-    <p>When you launch the app for the first time, Radioage uses the third-party GeoJS service to determine your approximate country based on your IP address.</p>
+
+    <p>When you launch Radioage, or return to the app after it has been in the background, Radioage uses third-party services (GeoJS and, if necessary, Cloudflare) to determine your approximate country based on your public IP address.</p>
+
+    <p>This country information is used to set or maintain your country selection and, where applicable, to apply geographic restrictions required for licensing of radio stations. Radioage does not receive or store your precise physical location from this process.</p>
 
     <ul>
-        <li><strong>How it is used:</strong> The result is used to automatically select a default radio station country so you can start listening without manually selecting a country.</li>
-        <li><strong>What is transmitted:</strong> The request to GeoJS necessarily includes the network information required to make the request, including your IP address. GeoJS states that it does not currently store access logs and uses the request to provide IP-based geographic information.</li>
+        <li><strong>How it is used:</strong> For a new installation, the detected country may be used to automatically select the initial radio station country. For existing users, Radioage respects their selected country except when geographic restrictions require the country to be restricted.</li>
+
+        <li><strong>What is transmitted:</strong> The request to the IP geolocation service necessarily includes your public IP address and other network information required to make the request. GeoJS and Cloudflare process this request to provide IP-based geographic information according to their respective services and policies.</li>
     </ul>
 
     <h3>C. Local App Data</h3>
@@ -154,11 +158,25 @@
     <p>Radioage uses the following third-party services to provide app functionality. These services may receive information such as your IP address as part of normal network requests:</p>
 
     <ul>
-        <li><strong>Radio Browser API</strong> (api.radio-browser.info): A community-maintained directory used to retrieve radio station information and stream information.</li>
+        <li>
+            <strong>Radio Browser API</strong> (api.radio-browser.info): 
+            A community-maintained directory used to retrieve radio station information and stream information.
+        </li>
 
-        <li><strong>GeoJS</strong> (geojs.io): An IP geolocation service used during the initial setup of Radioage to determine the user's approximate country.</li>
+        <li>
+            <strong>GeoJS</strong> (geojs.io): 
+            An IP geolocation service used to determine the user's approximate country based on their public IP address.
+        </li>
 
-        <li><strong>RevenueCat</strong>: A subscription management service used to validate purchases, maintain subscription status, and manage access to Radioage PRO features.</li>
+        <li>
+            <strong>Cloudflare</strong>: 
+            Used as a fallback IP geolocation service to determine the user's approximate country when the primary geolocation service is unavailable.
+        </li>
+
+        <li>
+            <strong>RevenueCat</strong>: 
+            A subscription management service used to validate purchases, maintain subscription status, and manage access to Radioage PRO features.
+        </li>
     </ul>
 
     <p>These third-party services have their own privacy policies describing how they handle information received through their services.</p>
@@ -172,7 +190,7 @@
     <p>Limited information may nevertheless be transmitted to third-party service providers when necessary to provide app functionality. This includes:</p>
 
     <ul>
-        <li>Network information, including your IP address, when communicating with services such as Radio Browser and GeoJS.</li>
+        <li>Network information, including your IP address, when communicating with services such as Radio Browser, GeoJS, and Cloudflare.</li>
         <li>Purchase and subscription information processed by RevenueCat to validate transactions and provide Radioage PRO features.</li>
         <li>An anonymous RevenueCat App User ID used to associate purchase information with an anonymous customer record.</li>
     </ul>
