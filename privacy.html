@@ -117,7 +117,7 @@
 
     <ul>
         <li><strong>How it is used:</strong> Your coordinates are processed on your device to calculate the distance between you and available radio stations using mathematical (Haversine) formulas. This allows the app to filter stations within your chosen radius.</li>
-        <li><strong>How it is protected:</strong> Your precise location is not uploaded to our servers, and Radioage does not send your GPS coordinates to Radio Browser or other radio services. The location filtering is performed locally on your device.</li>
+        <li><strong>How it is protected:</strong> Your precise location is not uploaded to Radioage's servers, and Radioage does not send your GPS coordinates to Radio Browser or radio station services. When "Stations Near You" is used, the coordinates may be provided to the platform's geocoding service (Apple on iOS or the system geocoder, normally Google, on Android) to obtain geographic information needed for the feature. The coordinates are not saved by Radioage.</li>
     </ul>
 
     <h3>B. Approximate Location Data (IP Address)</h3>
@@ -140,9 +140,13 @@
         <li>Your selected theme (Light/Dark).</li>
         <li>Your chosen language filters and radius settings.</li>
         <li>Your selected default country.</li>
+        <li>Regional availability state, such as the detected country and whether a regional restriction applies.</li>
+        <li>The last station and radio band used, so the app can restore the radio dial state.</li>
+        <li>Certain app and interface preferences, such as whether "Stations Near You" is enabled and when an upgrade prompt was last shown.</li>
+        <li>Your last-known Radioage PRO status.</li>
     </ul>
 
-    <p><strong>How it is protected:</strong> This information is stored locally on your device using the app's local storage. Radioage does not maintain a server-side database containing these preferences.</p>
+    <p><strong>How it is protected:</strong> This information is stored locally on your device using the app's local storage. Radioage does not maintain a server-side database containing these preferences or app state.</p>
 
     <h3>D. Subscription and Purchase Information</h3>
     <p>If you purchase a Radioage PRO subscription, the transaction is processed by the applicable app store (Apple App Store or Google Play Store) and subscription information is managed through RevenueCat.</p>
@@ -155,7 +159,7 @@
 
     <h2>3. Third-Party Services</h2>
 
-    <p>Radioage uses the following third-party services to provide app functionality. These services may receive information such as your IP address as part of normal network requests:</p>
+    <p>Radioage uses the following third-party services to provide app functionality. Depending on how a service is accessed, these services or other third-party servers may receive information such as your IP address as part of normal network requests.</p>
 
     <ul>
         <li>
@@ -175,11 +179,21 @@
 
         <li>
             <strong>RevenueCat</strong>: 
-            A subscription management service used to validate purchases, maintain subscription status, and manage access to Radioage PRO features.
+            A subscription management service used to validate purchases, maintain subscription status, and manage access to Radioage PRO features. RevenueCat generates and stores an anonymous App User ID for the installation and associates subscription information with that anonymous customer record.
+        </li>
+
+        <li>
+            <strong>Apple / Google geocoding services</strong>:
+            When you use "Stations Near You", Radioage uses the device's location with the platform's geocoding service to determine geographic information needed for the feature. On iOS this uses Apple's geocoding service; on Android this uses the device's system geocoder, normally provided by Google. Radioage does not store your location coordinates.
+        </li>
+
+        <li>
+            <strong>Radio station and content servers</strong>:
+            When you listen to a station, your device connects directly to third-party servers operated by the station, broadcaster, or their service providers to receive the live audio stream, programme information, or station artwork. These servers may receive standard network information, including your IP address.
         </li>
     </ul>
 
-    <p>These third-party services have their own privacy policies describing how they handle information received through their services.</p>
+    <p>These third-party services have their own privacy policies describing how they handle information received through their services. Radioage does not control the privacy practices of third-party station, broadcaster, geocoding, network, or content-hosting services.</p>
 
     <h2>4. Data Sharing and Disclosure</h2>
 
@@ -190,8 +204,9 @@
     <p>Limited information may nevertheless be transmitted to third-party service providers when necessary to provide app functionality. This includes:</p>
 
     <ul>
-        <li>Network information, including your IP address, when communicating with services such as Radio Browser, GeoJS, and Cloudflare.</li>
-        <li>Purchase and subscription information processed by RevenueCat to validate transactions and provide Radioage PRO features.</li>
+        <li>Network information, including your IP address, when communicating with services such as Radio Browser, GeoJS, Cloudflare, radio station servers, and other third-party services required to deliver app content.</li>
+        <li>Your device's location coordinates when you choose to use "Stations Near You", which are sent to the platform's geocoding service to determine geographic information for that feature. Radioage does not save those coordinates.</li>
+        <li>Purchase and subscription information processed by RevenueCat to validate transactions, maintain subscription status, and provide Radioage PRO features.</li>
         <li>An anonymous RevenueCat App User ID used to associate purchase information with an anonymous customer record.</li>
     </ul>
 
@@ -199,9 +214,9 @@
 
     <h2>5. Data Retention</h2>
 
-    <p>Radioage does not maintain a server-side database of your app preferences, favorites, themes, or language settings.</p>
+    <p>Radioage does not maintain a server-side database of your app preferences, favorites, themes, language settings, regional app state, or playback state.</p>
 
-    <p>Information stored locally by Radioage remains on your device until you delete it by removing the app or clearing its local data.</p>
+    <p>Information stored locally by Radioage remains on your device until you delete it by removing the app or clearing its local data. This includes preferences, favourites, regional app state, last-used station information, and certain interface state. RevenueCat's anonymous App User ID and cached subscription information are stored separately by RevenueCat's SDK and are handled according to RevenueCat's applicable privacy practices.</p>
 
     <p>Subscription and purchase information processed by RevenueCat is retained and managed by RevenueCat according to its applicable privacy policy and service terms.</p>
 
